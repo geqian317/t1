@@ -64,7 +64,7 @@ def findStuednt(name):
         if y == name:
             return x, y
     else:
-        print('T666班没有这个学员')
+        return -1,None
 
 # 删除学生
 def delStudent():
@@ -80,7 +80,7 @@ def delStudent():
 def modifyStuednt():
     name=input('请输入要修改的学生姓名')
     name2=input('请输入修改后的学生姓名:')
-    x,name=findStuednt(name2)
+    x,name=findStuednt(name)
     if x==-1:
         print('T666班没有这个学员')
     else:
@@ -105,6 +105,7 @@ while k<=5:
         name=input('请输入要查询的学生姓名:')
         x,y=findStuednt(name)
         print('{}在座位号{}的位置'.format(y, x))
+        print('T666班没有这个学员')
     elif n=='exit':
         break
     else:
