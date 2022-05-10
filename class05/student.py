@@ -50,49 +50,46 @@ list = ['纪云禾', '长意', '洛洛', '林昊天', '雪三月']
 def student():
     for i in list:
         print(i,end=' ')
+
 # 添加学生
 def addStudent():
-    name = input('请输入增加的学生姓名:')
+    name=input('请输入要增加的学生姓名:')
     list.append(name)
     return list
-#
-name=input("请输入要查询的学生姓名:")
-# 查询学生
-def findStuedent():
-    # x是下标,y是元素
-    for x, y in enumerate(list):
-        if y==name:
-            print('{}在座位号{}的位置'.format(y, x))
+
+# 查询学生信息
+def findStuednt(name):
+    # x是索引,y是值
+    for x, y in enumerate(list,1):
+        if y == name:
             return x, y
     else:
-        print("T666班没有这个学员")
+        print('T666班没有这个学员')
 
 # 删除学生
-def deletStudent():
-    name1=input('请输入要删除的学生姓名')
-    x,name=findStuedent()
+def delStudent():
+    name1=input('请输入要删除的学生姓名:')
+    x, name = findStuednt(name1)
     if name1==name:
         list.remove(name1)
         return list
     else:
-        print("T666班没有这个学员")
+        print('T666班没有这个学员')
 
-
-# 修改学生
-def editStudent():
+# 修改学生信息
+def modifyStuednt():
     name=input('请输入要修改的学生姓名')
-    name1=input('请输入修改后的学生姓名')
-    x,name=findStuedent()
+    name2=input('请输入修改后的学生姓名:')
+    x,name=findStuednt(name2)
     if x==-1:
-        print("T666班没有这个学员")
+        print('T666班没有这个学员')
     else:
-        list[x]=name1
+        list[x]=name2
         return list
 
-# 循环输入选择
-i=0
-while i<=5:
-    n=input("请输入你的选择:")
+k=0
+while k<=5:
+    n=input('请输入你的选择:')
     if n=='0':
         student()
         print()
@@ -100,16 +97,21 @@ while i<=5:
         s=addStudent()
         print(s)
     elif n=='2':
-        s=deletStudent()
+        s=delStudent()
         print(s)
     elif n=='3':
-        editStudent()
+        modifyStuednt()
     elif n=='4':
-        name=input()
-        findStuedent()
+        name=input('请输入要查询的学生姓名:')
+        x,y=findStuednt(name)
+        print('{}在座位号{}的位置'.format(y, x))
     elif n=='exit':
-         break
+        break
     else:
         print("输入错误,请重新输入")
-        # continue
-    i+=1
+    k+=1
+
+
+
+
+
