@@ -60,7 +60,7 @@ def addStudent():
 # 查询学生信息
 def findStuednt(name):
     # x是索引,y是值
-    for x, y in enumerate(list,1):
+    for x, y in enumerate(list):
         if y == name:
             return x, y
     else:
@@ -78,7 +78,7 @@ def delStudent():
 
 # 修改学生信息
 def modifyStuednt():
-    name=input('请输入要修改的学生姓名')
+    name=input('请输入要修改的学生姓名:')
     name2=input('请输入修改后的学生姓名:')
     x,name=findStuednt(name)
     if x==-1:
@@ -87,8 +87,8 @@ def modifyStuednt():
         list[x]=name2
         return list
 
-k=0
-while k<=5:
+
+while True:
     n=input('请输入你的选择:')
     if n=='0':
         student()
@@ -100,17 +100,21 @@ while k<=5:
         s=delStudent()
         print(s)
     elif n=='3':
-        modifyStuednt()
+        list=modifyStuednt()
+        print(list)
     elif n=='4':
         name=input('请输入要查询的学生姓名:')
         x,y=findStuednt(name)
-        print('{}在座位号{}的位置'.format(y, x))
-        print('T666班没有这个学员')
+        if x==-1:
+            print('T666班没有这个学员')
+        else:
+            print('{}在座位号{}的位置'.format(y, x))
     elif n=='exit':
+        print("退出系统")
         break
     else:
         print("输入错误,请重新输入")
-    k+=1
+
 
 
 
