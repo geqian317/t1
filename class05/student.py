@@ -49,44 +49,43 @@ list = ['纪云禾', '长意', '洛洛', '林昊天', '雪三月']
 # 显示学员信息
 def student():
     for i in list:
-        print(i,end=' ')
+        print(i,end='  ')
 
 # 添加学生
 def addStudent():
-    name=input('请输入要增加的学生姓名:')
+    name=input('请输入要添加的学生姓名:')
     list.append(name)
     return list
 
-# 查询学生信息
-def findStuednt(name):
-    # x是索引,y是值
-    for x, y in enumerate(list):
-        if y == name:
-            return x, y
-    else:
-        return -1,None
+# 查询学生
+def findStuedent(name):
+    # x是下标,y是元素
+    for x,y in enumerate(list):
+        if y==name:
+            return x,y
+        else:
+            return -1,None
 
 # 删除学生
 def delStudent():
     name1=input('请输入要删除的学生姓名:')
-    x, name = findStuednt(name1)
+    x,name=findStuedent(name1)
     if name1==name:
         list.remove(name1)
         return list
     else:
-        print('T666班没有这个学员')
+        print("T666班不存在这个学生")
 
-# 修改学生信息
-def modifyStuednt():
+# 修改学生
+def modifyStudent():
     name=input('请输入要修改的学生姓名:')
     name2=input('请输入修改后的学生姓名:')
-    x,name=findStuednt(name)
+    x,name=findStuedent(name)
     if x==-1:
-        print('T666班没有这个学员')
+        print("T666班不存在这个学生")
     else:
         list[x]=name2
         return list
-
 
 while True:
     n=input('请输入你的选择:')
@@ -94,26 +93,26 @@ while True:
         student()
         print()
     elif n=='1':
-        s=addStudent()
-        print(s)
+        l=addStudent()
+        print(l)
     elif n=='2':
-        s=delStudent()
-        print(s)
+        l=delStudent()
+        print(l)
     elif n=='3':
-        list=modifyStuednt()
-        print(list)
+        l=modifyStudent()
+        print(l)
     elif n=='4':
         name=input('请输入要查询的学生姓名:')
-        x,y=findStuednt(name)
+        x,y=findStuedent(name)
         if x==-1:
-            print('T666班没有这个学员')
+            print('T666班不存在这个学生')
         else:
             print('{}在座位号{}的位置'.format(y, x))
     elif n=='exit':
-        print("退出系统")
+        print('退出系统')
         break
     else:
-        print("输入错误,请重新输入")
+        print('输入错误,请重新输入')
 
 
 
